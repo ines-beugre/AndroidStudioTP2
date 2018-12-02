@@ -12,7 +12,6 @@ d'appeler l'Activity de saisie développée dans l'exercice 1.1.
     -creer une empty activity
     -inserer le composant RecyclerView
     -Dans main2activity créer l'intent qui appelle l'activité1
-
     -dans manifest, changer le point d'entrée de l'application MainActivity --> Main2Activity
 
 2. Créez ensuite une représentation générique d'un seul item en XML (item.xml) pour chaque entrée
