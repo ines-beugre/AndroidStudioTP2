@@ -1,6 +1,7 @@
 package mm.ccn2.istic.fr.tp1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+
     }
 
     @Override
@@ -102,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
         // Add the new row before the add field button.
         parentLinearLayout.addView(rowView, parentLinearLayout.getChildCount() - 1);
     }
+
+
+
 
 }
 
