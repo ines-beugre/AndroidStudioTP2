@@ -41,22 +41,43 @@ public class MainActivity extends AppCompatActivity {
 
         mValid = (Button) findViewById(R.id.valid);
 
+        /*
+        * partie 2.1
+        * le bouton Valider doit créer un nouvelle utilisateur dans la liste
+        * */
         mValid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String nom = lastname.getText().toString();
+                String prenom = firstname.getText().toString();
+                String dateDeNaissance = birthday.getText().toString();
+                String villeDeNaissance = birthcity.getText().toString();
 
-                Context context = getApplicationContext();
-                CharSequence info = "Votre nom est: " + lastname.getText().toString() + "\n" +
-                                    "Votre prénom: " + firstname.getText().toString() + "\n" +
-                                    "Votre date de naissance: " + birthday.getText().toString() + "\n" +
-                                    "Votre ville de naissance: " + birthcity.getText().toString() + "\n";
-
-                int duration = Toast.LENGTH_LONG;
-
-                Toast toast = Toast.makeText(context, info, duration);
-                toast.show();
+                User user = new User(nom, prenom, dateDeNaissance, villeDeNaissance);
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
             }
         });
+
+        //partie 1.1
+//        mValid.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Context context = getApplicationContext();
+//                CharSequence info = "Votre nom est: " + lastname.getText().toString() + "\n" +
+//                                    "Votre prénom: " + firstname.getText().toString() + "\n" +
+//                                    "Votre date de naissance: " + birthday.getText().toString() + "\n" +
+//                                    "Votre ville de naissance: " + birthcity.getText().toString() + "\n";
+//
+//                int duration = Toast.LENGTH_LONG;
+//
+//                Toast toast = Toast.makeText(context, info, duration);
+//                toast.show();
+//            }
+//        });
 
     }
 
