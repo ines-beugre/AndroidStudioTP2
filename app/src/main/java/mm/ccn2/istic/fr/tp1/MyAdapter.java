@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class MyAdaptater extends RecyclerView.Adapter<MyAdaptater.MyViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private TextView mLastname;
     private TextView mFirstname;
@@ -20,20 +20,20 @@ public class MyAdaptater extends RecyclerView.Adapter<MyAdaptater.MyViewHolder> 
     List<User> users;
 
     //2 Affiche la liste lors de la création de l"adapter
-    public MyAdaptater(List<User> users) {
+    public MyAdapter(List<User> users) {
         this.users = users;
     }
 
     //methode exécutée une foisà la création du ViewHolder
     @Override
-    public MyAdaptater.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.item, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MyAdaptater.MyViewHolder myViewHolder, int position) {
+    public void onBindViewHolder(MyAdapter.MyViewHolder myViewHolder, int position) {
         myViewHolder.display(users.get(position));
     }
 

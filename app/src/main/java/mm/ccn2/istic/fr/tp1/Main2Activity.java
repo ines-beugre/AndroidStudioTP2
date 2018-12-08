@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class Main2Activity extends AppCompatActivity {
+
 
     // 1 creation des variables
     @Bind(R.id.newClient) Button mNewClient;
@@ -25,7 +28,8 @@ public class Main2Activity extends AppCompatActivity {
     // 3 Apres l'Adapter, on déclare la liste qui sera affichée dans la RecyclerView et l'Adapter
      List<User> users;
     private RecyclerView mRecyclerView;
-    private MyAdaptater myAdaptater;
+    private MyAdapter myAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,14 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         ButterKnife.bind(this);
 
-        //2 permet au bouton d'appeler l'activité 1
+        // 1 Instanciation d'activityView
+        mRecyclerView = (RecyclerView)findViewById(R.id.itemlList);
+
+        // 2 instanciation de la liste de user et ajout de user dans la liste
+        users = new ArrayList<>();
+
+
+        // 1 Permet d'appeller l'activité1
         mNewClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,12 +62,12 @@ public class Main2Activity extends AppCompatActivity {
         users.add(new User("Clara", "Li", "21 08 98", "LA"));
 
         //6 Instanciation de la l'Adapter
-        myAdaptater = new MyAdaptater(users);
+        myAdapter = new MyAdapter(users);
 
         //7 Disposition de la liste avec affichage verticale
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         //8 Lie l'adapter à la liste crée
-        mRecyclerView.setAdapter(myAdaptater);
+        mRecyclerView.setAdapter(myAdapter);
 
         //
 
@@ -74,6 +85,5 @@ public class Main2Activity extends AppCompatActivity {
         }
 
     }
-
 
 }

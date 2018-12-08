@@ -41,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
         mValid = (Button) findViewById(R.id.valid);
 
+        /*
+        * partie 2.1
+        * le bouton Valider doit créer un nouvelle utilisateur dans la liste
+        * */
         mValid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,16 +60,17 @@ public class MainActivity extends AppCompatActivity {
                 User user = new User(nom, prenom, dateDeNaissance, villeDeNaissance);
 
                 // 2 faire un intent vers Main2Activity
+
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 intent.putExtra("user", user);
                 startActivity(intent);
                 finish();
 
-
-
             }
         });
 
+
+        //partie 1.1
 //        mValid.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -129,6 +134,9 @@ public class MainActivity extends AppCompatActivity {
         // Add the new row before the add field button.
         parentLinearLayout.addView(rowView, parentLinearLayout.getChildCount() - 1);
     }
+
+
+
 
 }
 

@@ -17,13 +17,14 @@ public class User implements Parcelable {
         this.birthcity = birthcity;
     }
 
-    //
+
     protected User(Parcel in) {
         lastname = in.readString();
         firstname = in.readString();
         birthday = in.readString();
         birthcity = in.readString();
     }
+
 
     public String getLastname() {
         return lastname;
@@ -44,6 +45,7 @@ public class User implements Parcelable {
     //Methode parcelable
 
     //Objet creator qui construit une instance de User à partir d'un parcel
+
     public static final Creator<User> CREATOR = new Creator<User>() {
         @Override
         public User createFromParcel(Parcel in) {
@@ -56,12 +58,12 @@ public class User implements Parcelable {
         }
     };
 
-
     //Sert à décrire le contenu de notre Parcel et plus précisément le nombre d’objet spéciaux contenus dans votre Parcel
     @Override
     public int describeContents() {
         return 0;
     }
+
 
     //Sert à écrire l’objet dans un Parcel.
     @Override
@@ -71,4 +73,5 @@ public class User implements Parcelable {
         dest.writeString(birthday);
         dest.writeString(birthcity);
     }
+
 }
