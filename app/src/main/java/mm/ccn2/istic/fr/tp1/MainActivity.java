@@ -1,6 +1,7 @@
 package mm.ccn2.istic.fr.tp1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,19 +44,45 @@ public class MainActivity extends AppCompatActivity {
         mValid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
+                * Après User Parcelable
+                * 1 on recupère le user crée dans l'activity1
+                 * */
+                String nom = lastname.getText().toString();
+                String prenom = firstname.getText().toString();
+                String dateDeNaissance = birthcity.getText().toString();
+                String villeDeNaissance = birthcity.getText().toString();
 
-                Context context = getApplicationContext();
-                CharSequence info = "Votre nom est: " + lastname.getText().toString() + "\n" +
-                                    "Votre prénom: " + firstname.getText().toString() + "\n" +
-                                    "Votre date de naissance: " + birthday.getText().toString() + "\n" +
-                                    "Votre ville de naissance: " + birthcity.getText().toString() + "\n";
+                User user = new User(nom, prenom, dateDeNaissance, villeDeNaissance);
 
-                int duration = Toast.LENGTH_LONG;
+                // 2 faire un intent vers Main2Activity
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
 
-                Toast toast = Toast.makeText(context, info, duration);
-                toast.show();
+
+
             }
         });
+
+//        mValid.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Context context = getApplicationContext();
+//                CharSequence info = "Votre nom est: " + lastname.getText().toString() + "\n" +
+//                                    "Votre prénom: " + firstname.getText().toString() + "\n" +
+//                                    "Votre date de naissance: " + birthday.getText().toString() + "\n" +
+//                                    "Votre ville de naissance: " + birthcity.getText().toString() + "\n";
+//
+//                int duration = Toast.LENGTH_LONG;
+//
+//                Toast toast = Toast.makeText(context, info, duration);
+//                toast.show();
+//            }
+//        });
+
     }
 
     @Override
