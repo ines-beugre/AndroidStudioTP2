@@ -8,13 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
-import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import mm.ccn2.istic.fr.tp1.entity.User;
 
 public class Main2Activity extends AppCompatActivity {
 

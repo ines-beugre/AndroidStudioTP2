@@ -1,4 +1,4 @@
-package mm.ccn2.istic.fr.tp1;
+package mm.ccn2.istic.fr.tp1.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
