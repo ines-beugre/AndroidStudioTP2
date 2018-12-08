@@ -3,6 +3,7 @@ package mm.ccn2.istic.fr.tp1;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+
 public class User implements Parcelable {
 
     private String lastname;
